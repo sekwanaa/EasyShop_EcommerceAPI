@@ -7,8 +7,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.yearup.data.CategoryDao;
 import org.yearup.data.ProductDao;
+import org.yearup.data.ShoppingCartDao;
 import org.yearup.data.mysql.MySqlCategoryDao;
 import org.yearup.data.mysql.MySqlProductDao;
+import org.yearup.data.mysql.MySqlShoppingCartDao;
 
 import javax.sql.DataSource;
 
@@ -31,6 +33,11 @@ public class AppConfig
     @Bean
     public CategoryDao categoryDao(DataSource dataSource) {
         return new MySqlCategoryDao(dataSource);
+    }
+
+    @Bean
+    public ShoppingCartDao shoppingCartDao(DataSource dataSource) {
+        return new MySqlShoppingCartDao(dataSource);
     }
 
     @Autowired
