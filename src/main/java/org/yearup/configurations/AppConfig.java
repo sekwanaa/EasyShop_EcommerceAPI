@@ -5,12 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.yearup.data.CategoryDao;
-import org.yearup.data.ProductDao;
-import org.yearup.data.ShoppingCartDao;
-import org.yearup.data.mysql.MySqlCategoryDao;
-import org.yearup.data.mysql.MySqlProductDao;
-import org.yearup.data.mysql.MySqlShoppingCartDao;
+import org.yearup.data.*;
+import org.yearup.data.mysql.*;
 
 import javax.sql.DataSource;
 
@@ -38,6 +34,16 @@ public class AppConfig
     @Bean
     public ShoppingCartDao shoppingCartDao(DataSource dataSource) {
         return new MySqlShoppingCartDao(dataSource);
+    }
+
+    @Bean
+    public ProfileDao profileDao (DataSource dataSource) {
+        return new MySqlProfileDao(dataSource);
+    }
+
+    @Bean
+    public UserDao userDao (DataSource dataSource) {
+        return new MySqlUserDao(dataSource);
     }
 
     @Autowired
