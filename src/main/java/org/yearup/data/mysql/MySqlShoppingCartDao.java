@@ -39,4 +39,58 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
         }
         return shoppingCart;
     }
+
+    @Override
+    public void addItemToCart(int userId, int product_id) {
+        ShoppingCart shoppingCart = getByUserId(userId);
+        String insertSql = "INSERT INTO shopping_cart (user_id, product_id, quantity) VALUES (?, ?, ?)";
+
+        try (Connection connection = getConnection()) {
+            PreparedStatement ps = connection.prepareStatement(insertSql);
+            ps.setInt(1, userId);
+            ps.setInt(2, product_id);
+            ps.setInt(3, 1);
+
+            ps.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public int updateItemInCart(int userId, int product_id) {
+        String updateSql = """
+                UPDATE shopping_cart
+                SET
+                quantity = quantity + 1
+                WHERE user_id = ? AND product_id = ?;
+                """;
+
+        try (Connection connection = getConnection()) {
+            PreparedStatement ps = connection.prepareStatement(updateSql);
+            ps.setInt(1, userId);
+            ps.setInt(2, product_id);
+
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public int deleteCart(int userId) {
+        String deleteSql = """
+                DELETE FROM shopping_cart
+                WHERE user_id = ?;
+                """;
+
+        try (Connection connection = getConnection()) {
+            PreparedStatement ps = connection.prepareStatement(deleteSql);
+            ps.setInt(1, userId);
+
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
