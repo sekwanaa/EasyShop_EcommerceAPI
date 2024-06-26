@@ -55,7 +55,6 @@ public class ShoppingCartController
     }
 
     @PostMapping("products/{product_id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public ShoppingCart addItemToCart(Principal principal, @PathVariable int product_id) {
         try
         {

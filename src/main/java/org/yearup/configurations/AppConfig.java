@@ -46,6 +46,11 @@ public class AppConfig
         return new MySqlUserDao(dataSource);
     }
 
+    @Bean
+    public OrderDao orderDao(DataSource dataSource) {
+        return new MySqlOrderDao(dataSource);
+    }
+
     @Autowired
     public AppConfig(@Value("${datasource.url}") String url,
                      @Value("${datasource.username}") String username,
