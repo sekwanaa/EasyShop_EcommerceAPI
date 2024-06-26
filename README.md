@@ -33,12 +33,9 @@
 
 <summary>
   
-  ## Web Application
+  ## Checkout the website!
   
 </summary>
-
-### File Structure / index.html
-![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/467d77d9-0e6d-4315-a339-029ecd752797)
 
 ### Home page not logged in
 ![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/11f69233-0c41-4a8c-84a2-df35d645c994)
@@ -54,6 +51,9 @@
 
 ### Clear
 ![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/c6575ac7-53cc-4575-a816-3b0cc337b98b)
+
+### File Structure / index.html
+![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/467d77d9-0e6d-4315-a339-029ecd752797)
 
 </details>
 
