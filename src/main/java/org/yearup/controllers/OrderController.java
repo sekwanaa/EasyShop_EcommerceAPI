@@ -33,7 +33,7 @@ public class OrderController {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public void checkout(Principal principal) {
+    public ShoppingCart checkout(Principal principal) {
         try
         {
             // get the currently logged-in username
@@ -46,6 +46,7 @@ public class OrderController {
 
             orderDao.create(userId, profile, shoppingCart);
             shoppingCartDao.deleteCart(userId);
+            return shoppingCartDao.getByUserId(userId);
         }
         catch(Exception e)
         {
