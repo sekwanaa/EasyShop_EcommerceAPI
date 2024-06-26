@@ -18,6 +18,7 @@
   * Filter by Color
 ### Adding to cart
 * Logged in users are able to add items to their shopping cart.
+  * The user cart is linked to their login, so it will be persistent even if they log out.
 ### Order Processing
 * Create Orders: Generate new order based on the items in the user's shopping cart...
 
@@ -38,18 +39,28 @@
 </summary>
 
 ### Home page not logged in
+> This is the homepage when a user is not logged, in. They can view the products, but cannot add them to a cart.
+
 ![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/11f69233-0c41-4a8c-84a2-df35d645c994)
 
 ### Home page logged in
+> After logging in, a user is able to add items to their cart.
+
 ![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/75c7e2b9-7612-4053-9acd-e35765211cd0)
 
 ### Cart
+> The user's current cart.
+
 ![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/bdef7443-e25d-42ae-aa8f-ecb73862a3a6)
 
 ### Checkout
+> Creating an order for the user based on items in the cart.
+
 ![image](https://github.com/sekwanaa/EasyShop_EcommerceAPI/assets/112197395/32bdca17-6fcb-4b49-b576-0db81b347209)
 
 ### Clear
+> Clearing the cart if a user does not want to checkout.
+
 ![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/c6575ac7-53cc-4575-a816-3b0cc337b98b)
 
 ### File Structure / index.html
@@ -99,7 +110,7 @@
 </summary>
 
 ### Failure to load the cart
-If there was an error trying to load the cart
+> If there was an error trying to load the cart
 
 ``` javascript
 .catch(error => {
@@ -113,7 +124,7 @@ If there was an error trying to load the cart
 
 
 ### Error clearing the cart
-If there was an error trying to clear the cart
+> If there was an error trying to clear the cart
 
 ``` javascript
 .catch(error => {
@@ -126,7 +137,7 @@ If there was an error trying to clear the cart
 ```
 
 ### Error checking out shopping cart
-If there was an error checking out the user's shopping cart
+> If there was an error checking out the user's shopping cart
 
 ``` javascript
 .catch(error => {
