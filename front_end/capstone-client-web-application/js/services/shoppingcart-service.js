@@ -186,15 +186,24 @@ class ShoppingCartService {
 				}
 
 				this.updateCartDisplay()
+				this.displayMessage()
 				this.loadCartPage()
 			})
 			.catch(error => {
 				const data = {
-					error: 'Empty cart failed.',
+					message: 'Empty cart failed.',
 				}
 
 				templateBuilder.append('error', data, 'errors')
 			})
+	}
+
+	displayMessage() {
+		const data = {
+			message: 'Your order has been successfully placed!',
+		}
+
+		templateBuilder.append('message', data, 'errors')
 	}
 
 	updateCartDisplay() {
