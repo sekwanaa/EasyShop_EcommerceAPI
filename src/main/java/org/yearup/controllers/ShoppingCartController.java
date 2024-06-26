@@ -8,11 +8,13 @@ import org.springframework.web.server.ResponseStatusException;
 import org.yearup.data.ProductDao;
 import org.yearup.data.ShoppingCartDao;
 import org.yearup.data.UserDao;
+import org.yearup.models.Product;
 import org.yearup.models.ShoppingCart;
 import org.yearup.models.ShoppingCartItem;
 import org.yearup.models.User;
 
 import java.security.Principal;
+import java.util.Map;
 
 @RestController
 @RequestMapping("cart")
@@ -53,7 +55,8 @@ public class ShoppingCartController
     }
 
     @PostMapping("products/{product_id}")
-    public void addItemToCart(Principal principal, @PathVariable int product_id) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public ShoppingCart addItemToCart(Principal principal, @PathVariable int product_id) {
         try
         {
             // get the currently logged-in username
@@ -62,12 +65,23 @@ public class ShoppingCartController
             User user = userDao.getByUserName(userName);
             int userId = user.getId();
 
+            ShoppingCart shoppingCart = getCart(principal);
+
+            for (Map.Entry<Integer, ShoppingCartItem> item : shoppingCart.getItems().entrySet()) {
+                if (item.getValue().getProductId() == product_id) {
+                    shoppingCartDao.updateItemInCart(userId, product_id);
+                    return getCart(principal);
+                }
+            }
+
             shoppingCartDao.addItemToCart(userId, product_id);
+
         }
         catch(Exception e)
         {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
+        return getCart(principal);
     }
 
     @PutMapping("products/{product_id}")
@@ -89,7 +103,7 @@ public class ShoppingCartController
     }
 
     @DeleteMapping("")
-    public int deleteCart(Principal principal) {
+    public ShoppingCart deleteCart(Principal principal) {
         try
         {
             // get the currently logged-in username
@@ -98,12 +112,13 @@ public class ShoppingCartController
             User user = userDao.getByUserName(userName);
             int userId = user.getId();
 
-            return shoppingCartDao.deleteCart(userId);
+            shoppingCartDao.deleteCart(userId);
         }
         catch(Exception e)
         {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
+        return getCart(principal);
     }
 
 }

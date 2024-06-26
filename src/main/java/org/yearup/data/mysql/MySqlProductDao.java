@@ -82,13 +82,14 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
                 Product product = mapRow(row);
                 products.add(product);
             }
+            if (!products.isEmpty()) return products;
         }
         catch (SQLException e)
         {
             throw new RuntimeException(e);
         }
 
-        return products;
+        return null;
     }
 
 

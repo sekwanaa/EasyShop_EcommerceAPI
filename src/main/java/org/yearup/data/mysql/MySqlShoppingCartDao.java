@@ -6,10 +6,7 @@ import org.yearup.models.ShoppingCart;
 import org.yearup.models.ShoppingCartItem;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 @Component
 public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDao {
@@ -46,12 +43,13 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
         String insertSql = "INSERT INTO shopping_cart (user_id, product_id, quantity) VALUES (?, ?, ?)";
 
         try (Connection connection = getConnection()) {
-            PreparedStatement ps = connection.prepareStatement(insertSql);
+            PreparedStatement ps = connection.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, userId);
             ps.setInt(2, product_id);
             ps.setInt(3, 1);
 
-            ps.execute();
+            ps.executeUpdate();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -78,7 +76,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
     }
 
     @Override
-    public int deleteCart(int userId) {
+    public void deleteCart(int userId) {
         String deleteSql = """
                 DELETE FROM shopping_cart
                 WHERE user_id = ?;
@@ -88,7 +86,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
             PreparedStatement ps = connection.prepareStatement(deleteSql);
             ps.setInt(1, userId);
 
-            return ps.executeUpdate();
+            ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
