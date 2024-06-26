@@ -49,6 +49,9 @@
 ### Cart
 ![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/bdef7443-e25d-42ae-aa8f-ecb73862a3a6)
 
+### Checkout
+![image](https://github.com/sekwanaa/EasyShop_EcommerceAPI/assets/112197395/32bdca17-6fcb-4b49-b576-0db81b347209)
+
 ### Clear
 ![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/c6575ac7-53cc-4575-a816-3b0cc337b98b)
 
