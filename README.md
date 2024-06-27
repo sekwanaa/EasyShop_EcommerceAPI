@@ -6,6 +6,13 @@
 
 <p>
   Welcome to the EasyShop Ecommerce API repository! This project is a comprehensive Java-based application designed to manage an ecommerce website's functionality.
+
+  ### Table of Contents
+* [Features](https://github.com/sekwanaa/EasyShop_EcommerceAPI?tab=readme-ov-file#features)
+* [A look into the application](https://github.com/sekwanaa/EasyShop_EcommerceAPI?tab=readme-ov-file#a-look-into-the-application)
+* [Check out the website!](https://github.com/sekwanaa/EasyShop_EcommerceAPI?tab=readme-ov-file#checkout-the-website)
+* [Interesting piece of code](https://github.com/sekwanaa/EasyShop_EcommerceAPI?tab=readme-ov-file#interesting-piece-of-code)
+* [Error handling](https://github.com/sekwanaa/EasyShop_EcommerceAPI?tab=readme-ov-file#error-handling)
   
 ## Features
 ### Login / Register
