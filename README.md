@@ -114,12 +114,12 @@
 
 ``` javascript
 .catch(error => {
-				const data = {
-					error: 'Load cart failed.',
-				}
+	const data = {
+		error: 'Load cart failed.',
+	}
 
-				templateBuilder.append('error', data, 'errors')
-			})
+	templateBuilder.append('error', data, 'errors')
+})
 ```
 
 
@@ -128,12 +128,12 @@
 
 ``` javascript
 .catch(error => {
-				const data = {
-					error: 'Empty cart failed.',
-				}
+	const data = {
+		error: 'Empty cart failed.',
+	}
 
-				templateBuilder.append('error', data, 'errors')
-			})
+	templateBuilder.append('error', data, 'errors')
+})
 ```
 
 ### Error checking out shopping cart
@@ -141,12 +141,12 @@
 
 ``` javascript
 .catch(error => {
-				const data = {
-					error: 'Empty cart failed.',
-				}
+	const data = {
+		error: 'Empty cart failed.',
+	}
 
-				templateBuilder.append('error', data, 'errors')
-			})
+	templateBuilder.append('error', data, 'errors')
+})
 ```
 </details>
 
