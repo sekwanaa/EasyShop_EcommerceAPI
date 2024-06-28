@@ -32,7 +32,6 @@ public class OrderController {
     }
 
     @PostMapping()
-    @ResponseStatus(HttpStatus.CREATED)
     public ShoppingCart checkout(Principal principal) {
         try
         {

@@ -15,7 +15,7 @@ import java.util.List;
 
     // http://localhost:8080/categories
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("categories")
 @CrossOrigin
 public class CategoriesController
 {
@@ -34,7 +34,7 @@ public class CategoriesController
         return categoryDao.getAllCategories();
     }
 
-    @GetMapping("/{categoryId}")
+    @GetMapping("{categoryId}")
     public ResponseEntity<Category> getById(@PathVariable int categoryId)
     {
         Category category = categoryDao.getById(categoryId);
@@ -47,7 +47,7 @@ public class CategoriesController
 
     // the url to return all products in category 1 would look like this
     // https://localhost:8080/categories/1/products
-    @GetMapping("/{categoryId}/products")
+    @GetMapping("{categoryId}/products")
     public List<Product> getProductsById(@PathVariable int categoryId)
     {
         try {
@@ -66,14 +66,14 @@ public class CategoriesController
         return categoryDao.create(category);
     }
 
-    @PutMapping("/{categoryId}")
+    @PutMapping("{categoryId}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void updateCategory(@PathVariable int categoryId, @RequestBody Category category)
     {
         categoryDao.update(categoryId, category);
     }
 
-    @DeleteMapping("/{categoryId}")
+    @DeleteMapping("{categoryId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deleteCategory(@PathVariable int categoryId)
