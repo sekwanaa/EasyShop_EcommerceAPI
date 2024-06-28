@@ -6,35 +6,42 @@
 
 <p>
   Welcome to the EasyShop Ecommerce API repository! This project is a comprehensive Java-based application designed to manage an ecommerce website's functionality.
+
+  ### Table of Contents
+* [Features](https://github.com/sekwanaa/EasyShop_EcommerceAPI#features)
+* [A look into the application](https://github.com/sekwanaa/EasyShop_EcommerceAPI#a-look-into-the-application)
+* [Check out the website!](https://github.com/sekwanaa/EasyShop_EcommerceAPI#checkout-the-website)
+* [Interesting piece of code](https://github.com/sekwanaa/EasyShop_EcommerceAPI#interesting-piece-of-code)
+* [Error handling](https://github.com/sekwanaa/EasyShop_EcommerceAPI#error-handling)
   
-## Features
-### Login / Register
-* Using SpringBoot JWT security, we are able to store users in the database with a hashed password.
-### Filtering Products
-* Using modules created from the front end, the API interacts with the database to retrieve relevant products.
-  * Filter by Category
-  * Filter by Min Price
-  * Filter by Max Price
-  * Filter by Color
-### Adding to cart
-* Logged in users are able to add items to their shopping cart.
-  * The user cart is linked to their login, so it will be persistent even if they log out.
-### Order Processing
-* Create Orders: Generate new order based on the items in the user's shopping cart...
+### Features
+* Login / Register
+	* Using SpringBoot JWT security, we are able to store users in the database with a hashed password.
+* Filtering Products
+	* Using modules created from the front end, the API interacts with the database to retrieve relevant products.
+		* Filter by Category
+		* Filter by Min Price
+		* Filter by Max Price
+		* Filter by Color
+* Adding to cart
+	* Logged in users are able to add items to their shopping cart.
+  		* The user cart is linked to their login, so it will be persistent even if they log out.
+* Order Processing
+	* Create Orders: Generate new order based on the items in the user's shopping cart...
 
-## A Look Into the Application
+### A Look Into the Application
 
-### File Structure / EasyShopApplication.java
+###### File Structure / EasyShopApplication.java
 ![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/49284580-17f5-4162-af84-34aeb5648868)
 
-### SpringBoot AppConfig
+###### SpringBoot AppConfig
 ![image](https://github.com/sekwanaa/Capstone3_EcommerceAPI/assets/112197395/b1ce74a9-39a6-420d-ae49-01688fc2265b)
 
 <details>
 
 <summary>
   
-  ## Checkout the website!
+  ### Checkout the website!
   
 </summary>
 
@@ -68,7 +75,7 @@
 
 </details>
 
-## Interesting Piece of Code
+### Interesting Piece of Code
 > I chose this piece of code because this post mapping checks the shopping cart to see whether an item is present, and if so it will update the quantity rather than a duplicate item.
 ``` java
 @PostMapping("products/{product_id}")
@@ -105,48 +112,48 @@
 
 <summary>
 
-## Error Handling
+### Error Handling
   
 </summary>
 
-### Failure to load the cart
+#### Failure to load the cart
 > If there was an error trying to load the cart
 
 ``` javascript
 .catch(error => {
-				const data = {
-					error: 'Load cart failed.',
-				}
+	const data = {
+		error: 'Load cart failed.',
+	}
 
-				templateBuilder.append('error', data, 'errors')
-			})
+	templateBuilder.append('error', data, 'errors')
+})
 ```
 
 
-### Error clearing the cart
+#### Error clearing the cart
 > If there was an error trying to clear the cart
 
 ``` javascript
 .catch(error => {
-				const data = {
-					error: 'Empty cart failed.',
-				}
+	const data = {
+		error: 'Empty cart failed.',
+	}
 
-				templateBuilder.append('error', data, 'errors')
-			})
+	templateBuilder.append('error', data, 'errors')
+})
 ```
 
-### Error checking out shopping cart
+#### Error checking out shopping cart
 > If there was an error checking out the user's shopping cart
 
 ``` javascript
 .catch(error => {
-				const data = {
-					error: 'Empty cart failed.',
-				}
+	const data = {
+		error: 'Empty cart failed.',
+	}
 
-				templateBuilder.append('error', data, 'errors')
-			})
+	templateBuilder.append('error', data, 'errors')
+})
 ```
 </details>
 
